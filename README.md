@@ -49,13 +49,32 @@ By this step user should still be in “Channel3” directory with the variable 
 
 ##### Segmenting 2D map
 
-
+1. cd ../Channel3/
+2. [seeds,mask,centroids,PhGaussNorm,DAPInorm,imPh2] = segmentingBloodVessel2Dmap_V2(pathtoparentfolder,seederosionsize); % seederosionsize is an integer.
+3. [seeds,mask,data] = segmeting2dimages(seeds,mask,PhGaussNorm,centroids);
 
 ##### Curvature correction
 
 1. lengthmap_2d_V2(pathtoparentfolder) % parent folder is the main directory - check “loading lif files” section
 1. RadiusCorrectionMap(pathtoparentfolder);
 1. [MetaSegData,MetaCorrectionData] = CurvatureCorrection(pathtoparentfolder); %this function also stores data in the parent folder. 
+
+###### Quantification
+Quantification studies on control (C), BAPN treated (B) and FAKI treated (F) animals: 
+
+1. [MetaC] = MetaAnalysis_CorrectedData_movlist(movlist) %movlist can be “pathtoparentfolder” if only one movie is being analyzed.
+1. [MetaR] = MetaAnalysis_CorrectedData_movlist(movlist) %movlist can be “pathtoparentfolder” if only one movie is being analyzed.
+1. [MetaF] = MetaAnalysis_CorrectedData_movlist(movlist) %movlist can be “pathtoparentfolder” if only one movie is being analyzed.
+1. [MetadataTable] = ExtractPropFromMetaData_wt_ttest(MetaC,MetaR,MetaF)
+1. FinalFigures_CBF(MetaC,MetaR,MetaF)
+1. OriAnglePolarPlots_weighted(Metadata,movtype,movcolor); 
+1. MetaInt = ExtractPhInt(movlist,ChannelName); %for extracting fiber information from a single channel.
+1. [FiberInfo] = ExtractPhInfo_All(ctrlmovlist,bapnmovlist,fakmovlist); %for extracting fiber information from all channels.
+
+
+
+
+
 
 
 
