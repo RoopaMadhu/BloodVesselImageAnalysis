@@ -1,0 +1,6 @@
+function [] = boxplotwithparam_out(inputvec,inputcolor,posnvec)
+
+boxplot(inputvec,'PlotStyle','traditional',....
+    'Positions',posnvec,'Colors',inputcolor,'BoxStyle','outline',...
+    'Widths',0.2,'Notch','off');
+end
