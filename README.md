@@ -1,10 +1,10 @@
 # BloodVesselImageAnalysis
 
-###### Softwares used: MATLAB_R2019a
+##### Softwares used: MATLAB_R2019a
 
-###### Prerequisites: 3D blood vessel imaging data in the form of .lif files; If the data is available in the form of .tif files, it should be arranged such that each .tif file corresponds to a single axial section of the blood vessel. 
+##### Prerequisites: 3D blood vessel imaging data in the form of .lif files; If the data is available in the form of .tif files, it should be arranged such that each .tif file corresponds to a single axial section of the blood vessel. 
 
-###### Examples of use : Codes should be run in the order given below as output from one function is needed for the next function to run.
+##### Examples of use : Codes should be run in the order given below as output from one function is needed for the next function to run.
 
 ##### Loading lif files
 
@@ -25,13 +25,13 @@ Axial segmentation is done on the phalloidin stained images. To do this, move to
 1. save dataimglist data;
 1. ELSA_3segmentCellsV4_convhullseeds_V2(data,1,checkInterval,tvec,seederosionsize,maskerosionsize); % checkInterval is an integer - refers to the interval when user wants to check the segmentation. If checkInterval is 100 then segmentation is shown and can be modified once every 100th frame - frame 1 to frame 99 undergo automated segmentation with the parameters inputted and are not open for manual intervention.
 
-###### Unwrapping phalloidin channel
+##### Unwrapping phalloidin channel
 
 By this step user should still be in “Channel3” directory with the variable “data” in the workspace.
 
 1. ReadingIntensitiesAlongVessel_Ver2(data.Source); % This line unwraps the phalloidin channel of the blood vessel.
 
-###### Unwrapping e-cadherin channel
+##### Unwrapping e-cadherin channel
 
 1. cd ../Channel2/
 1. data.Source = cd;
@@ -39,7 +39,7 @@ By this step user should still be in “Channel3” directory with the variable 
 1. save dataimglist data;
 1. ReadingIntensitiesAlongVesselChannel1(data.Source,’Channel2’)
 
-###### Unwrapping DAPI channel
+##### Unwrapping DAPI channel
 
 1. cd ../Channel1/
 1. data.Source = cd;
@@ -47,11 +47,11 @@ By this step user should still be in “Channel3” directory with the variable 
 1. save dataimglist data;
 1. ReadingIntensitiesAlongVesselChannel1(data.Source,’Channel1’);
 
-###### Segmenting 2D map
+##### Segmenting 2D map
 
 
 
-###### Curvature correction
+##### Curvature correction
 
 1. lengthmap_2d_V2(pathtoparentfolder) % parent folder is the main directory - check “loading lif files” section
 1. RadiusCorrectionMap(pathtoparentfolder);
