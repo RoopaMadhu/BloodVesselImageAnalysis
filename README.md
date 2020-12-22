@@ -4,7 +4,7 @@
 
 ##### Prerequisites: 3D blood vessel imaging data in the form of .lif files; If the data is available in the form of .tif files, it should be arranged such that each .tif file corresponds to a single axial section of the blood vessel. 
 
-##### Examples of use : Codes should be run in the order given below as output from one function is needed for the next function to run.
+##### Examples of use : Codes should be run in the order given below as output from one function is needed for the next function to run. Also refer to the file “Workflow” for a pictorial representation.
 
 ##### Loading lif files
 
@@ -70,6 +70,8 @@ Quantification studies on control (C), BAPN treated (B) and FAKI treated (F) ani
 1. OriAnglePolarPlots_weighted(Metadata,movtype,movcolor); 
 1. MetaInt = ExtractPhInt(movlist,ChannelName); %for extracting fiber information from a single channel.
 1. [FiberInfo] = ExtractPhInfo_All(ctrlmovlist,bapnmovlist,fakmovlist); %for extracting fiber information from all channels.
+1. PhIntPlots_weighted(FiberInfo,movtype,Metadata,numofmovies1,numofmovies2);
+
 
 
 
